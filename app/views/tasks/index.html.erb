@@ -1,0 +1,13 @@
+<h1>Tasks#index</h1>
+
+<ol>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= task.done? ? '[X]' : '[ ]' %> -
+      <%= link_to task.name, task_path(task) %> -
+      <%= link_to 'Marquer comme fait', mark_as_done_task_path(task), method: :patch %>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to "Ajouter une tache", new_task_path %>
